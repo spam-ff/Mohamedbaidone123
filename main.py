@@ -217,7 +217,7 @@ def home():
 
 def run_api():
     print("🌐 بدء تشغيل API...")
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=2315, debug=False)
 
 def AuTo_ResTartinG():
     time.sleep(6 * 60 * 60)

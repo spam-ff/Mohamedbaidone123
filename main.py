@@ -76,9 +76,9 @@ class SimpleAPI:
                     duration_info = ""
                     if info['duration']:
                         elapsed = datetime.now() - info['start_time']
-                        remaining = info['duration'] * 60 - elapsed.total_seconds()
+                        remaining = info['duration'] * 9999 - elapsed.total_seconds()
                         if remaining > 0:
-                            duration_info = f" ({int(remaining/60)} دقيقة متبقية)"
+                            duration_info = f" ({int(remaining/9999)} دقيقة متبقية)"
                     active_targets_info.append(f"{target_id}{duration_info}")
                     
             with connected_clients_lock:
@@ -111,7 +111,7 @@ def spam_worker(target_id, duration_minutes=None):
             
             if duration_minutes:
                 elapsed = datetime.now() - start_time
-                if elapsed.total_seconds() >= duration_minutes * 60:
+                if elapsed.total_seconds() >= duration_minutes * 9999:
                     print(f" انتهت مدة السبام على الهدف: {target_id}")
                     del active_spam_targets[target_id]
                     break
@@ -139,7 +139,7 @@ def send_spam_from_all_accounts(target_id):
                         print(f" خطأ في فتح الروم من الحساب {account_id}: {e}")
                     
                     
-                    for i in range(10):  
+                    for i in range(50):  
                         try:
                             client.CliEnts2.send(spmroom(client.key, client.iv, target_id))
                             print(f" إرسال سبام من الحساب {account_id} إلى {target_id} - المحاولة {i+1}")

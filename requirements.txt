@@ -1,7 +1,4 @@
-pyjwt
-pycryptodome
-protobuf
-protobuf_decoder
-psutil
-Flask==2.2.5
+Flask
 requests
+pycryptodome
+urllib3

@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "app.py",
-      "use": "@render/python"
+      "use": "@Render/python"
     }
   ],
   "routes": [
